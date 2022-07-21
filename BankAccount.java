@@ -29,38 +29,44 @@ class BankAccount{
 
     //Create a method that will allow a user to deposit money into either the checking or saving, 
     //be sure to add to total amount stored.
-
-    public void DepositCheck(double deposit){
-        this.checking_bal+= deposit;
-        acc_amount+= deposit;
+    public void Deposit(int checking, double deposit){
+        if (checking==1){
+            this.checking_bal+= deposit;
+            acc_amount+= deposit;
+        }
+        else if (checking ==2){
+            this.savings_bal+= deposit;
+            acc_amount+= deposit;
+        }
     }
 
-    public void DepositSav(double deposit){
-        this.savings_bal+= deposit;
-        acc_amount+= deposit;
-    }
+
 
     //Create a method to withdraw money from one balance. 
     //Do not allow them to withdraw money if there are insufficient funds.
-    public void WithdrawCheck(double withdraw){
-        if (checking_bal>= withdraw){
+    public void Withdraw(int checking, double withdraw){
+        if (checking==3){
+            if (checking_bal>= withdraw){
             this.checking_bal-=withdraw;
             acc_amount-=withdraw;
         }
-        else{
-            System.out.println("Insufficient funds.");
+            else{
+            System.out.println("Insufficient funds."); 
         }
-    }
+        }
 
-    public void WithdrawSav(double withdraw){
-        if (savings_bal>= withdraw){
+        else if (checking ==4){
+            if (savings_bal>= withdraw){
             this.savings_bal-=withdraw;
             acc_amount-=withdraw;
         }
-        else{
+            else{
             System.out.println("Insufficient funds.");
         }
+        }
+
     }
+
 
     //Create a method to see the total money from the checking and saving.
     public double Total(){
