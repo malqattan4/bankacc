@@ -29,10 +29,6 @@ class BankAccount{
 
     //Create a method that will allow a user to deposit money into either the checking or saving, 
     //be sure to add to total amount stored.
-    public void Deposit(double deposit){
-        this.checking_bal+= deposit;
-        acc_amount+= deposit;
-    }
 
     public void DepositCheck(double deposit){
         this.checking_bal+= deposit;
